@@ -65,10 +65,17 @@ function addKeyPressHandler() {
     'use strict';
     document.body.addEventListener('keyup', function(event) {
         event.preventDefault();
-        console.log(event.keyCode);
+        //console.log(event.keyCode);
         if (event.keyCode === ESC_KEY){
             hideDetails();
         }
+        // 1:49 9:58
+        var thumbnails = getThumbnailsArray();
+        if(48<event.keyCode &&  event.keyCode<59){
+            setDetailsFromThumb(thumbnails[event.keyCode-49]);
+            showDetails();
+        }
+
     });
 }
 function initializeEvents() {
